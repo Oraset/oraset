@@ -2,9 +2,16 @@
 build/
 dist/
 __pycache__/
+*.py[codz]
+*$py.class
+
+# 忽略C扩展
+*.so
 
 # 忽略文档构建产物
 docs/site/
+docs/_build/
+/site
 
 # 忽略示例文件
 examples/
@@ -22,7 +29,7 @@ test_*.oas
 *.tmp
 *.temp
 
-# 忽略 IDE 文件
+# 忽略IDE文件
 .vscode/
 .idea/
 *.swp
@@ -40,3 +47,120 @@ Thumbs.db
 *.ini
 *.cfg
 *.conf
+
+# 忽略安装相关文件
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 忽略PyInstaller文件
+*.manifest
+*.spec
+
+# 忽略安装日志
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 忽略测试覆盖率报告
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# 忽略翻译文件
+*.mo
+*.pot
+
+# 忽略Django相关文件
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# 忽略Flask相关文件
+instance/
+.webassets-cache
+
+# 忽略Scrapy相关文件
+.scrapy
+
+# 忽略PyBuilder文件
+.pybuilder/
+target/
+
+# 忽略Jupyter Notebook文件
+.ipynb_checkpoints
+
+# 忽略IPython文件
+profile_default/
+ipython_config.py
+
+# 忽略虚拟环境
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 忽略Spyder项目设置
+.spyderproject
+.spyproject
+
+# 忽略Rope项目设置
+.ropeproject
+
+# 忽略类型检查缓存
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# 忽略Pyre类型检查器
+.pyre/
+
+# 忽略pytype静态类型分析器
+.pytype/
+
+# 忽略Cython调试符号
+cython_debug/
+
+# 忽略Abstra相关文件
+.abstra/
+
+# 忽略Ruff缓存
+.ruff_cache/
+
+# 忽略PyPI配置文件
+.pypirc
+
+# 忽略Cursor相关文件
+.cursorignore
+.cursorindexingignore
+
+# 忽略Marimo相关文件
+marimo/_static/
+marimo/_lsp/
+__marimo__/
