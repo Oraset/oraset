@@ -13,6 +13,9 @@ docs/site/
 docs/_build/
 /site
 
+# 但保留docs目录本身
+!docs/
+
 # 忽略示例文件
 examples/
 
