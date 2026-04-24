@@ -1,0 +1,1928 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Oraset 编程语言官方文档 - 简单、强大、跨平台的编程语言">
+      
+      
+      
+        <link rel="canonical" href="https://oraset.org/libraries/math/">
+      
+      
+        <link rel="prev" href="../../tutorial/functions-and-classes/">
+      
+      
+        <link rel="next" href="../string/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>数学库 - Oraset 编程语言</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Oraset 编程语言" class="md-header__button md-logo" aria-label="Oraset 编程语言" data-md-component="logo">
+      
+  <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Oraset%20programming%20language%20logo%2C%20orange%20color%2C%20modern%20design&image_size=square_hd" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Oraset 编程语言
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数学库
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Oraset/oraset" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Oraset/oraset
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/quickstart/" class="md-tabs__link">
+          
+  
+  
+  入门教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  库参考
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Oraset 编程语言" class="md-nav__button md-logo" aria-label="Oraset 编程语言" data-md-component="logo">
+      
+  <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Oraset%20programming%20language%20logo%2C%20orange%20color%2C%20modern%20design&image_size=square_hd" alt="logo">
+
+    </a>
+    Oraset 编程语言
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Oraset/oraset" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Oraset/oraset
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    入门教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/basic-syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/control-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/functions-and-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数和类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    库参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    库参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学库
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导入方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数参考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数参考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本数学函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本数学函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.abs(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathsqrtx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.sqrt(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathpowx-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.pow(x, y)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathexpx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.exp(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathlogx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.log(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathlog10x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.log10(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三角函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathsinx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.sin(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathcosx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.cos(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathtanx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.tan(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathasinx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.asin(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathacosx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.acos(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathatanx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.atan(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学常数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数学常数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.pi()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.e()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取整函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取整函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathfloorx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.floor(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceilx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.ceil(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathroundx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.round(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最值函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最值函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathmaxargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.max(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathminargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.min(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="随机数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.random()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandinta-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.randint(a, b)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例代码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注意事项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字符串库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数组库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../util/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导入方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数参考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数参考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本数学函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本数学函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.abs(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathsqrtx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.sqrt(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathpowx-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.pow(x, y)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathexpx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.exp(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathlogx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.log(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathlog10x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.log10(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三角函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathsinx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.sin(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathcosx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.cos(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathtanx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.tan(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathasinx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.asin(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathacosx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.acos(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathatanx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.atan(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学常数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数学常数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.pi()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.e()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取整函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取整函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathfloorx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.floor(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceilx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.ceil(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathroundx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.round(x)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最值函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最值函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathmaxargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.max(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathminargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.min(...args)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="随机数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.random()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandinta-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math.randint(a, b)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例代码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注意事项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">数学库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">简介<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>数学库（<code>@math</code>）提供了一系列数学运算函数，包括基本运算、三角函数、随机数生成等。</p>
+<h2 id="_3">导入方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@math;
+</code></pre></div>
+<h2 id="_4">函数参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">基本数学函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="mathabsx">math.abs(x)<a class="headerlink" href="#mathabsx" title="Permanent link">&para;</a></h4>
+<p>计算绝对值。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 数字</p>
+<p><strong>返回值：</strong>
+- 数字的绝对值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@math;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>show(`abs(-123) = `, math.abs(-123));  !! 输出: 123
+</code></pre></div>
+<h4 id="mathsqrtx">math.sqrt(x)<a class="headerlink" href="#mathsqrtx" title="Permanent link">&para;</a></h4>
+<p>计算平方根。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 非负数</p>
+<p><strong>返回值：</strong>
+- 平方根值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@math;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>show(`sqrt(16) = `, math.sqrt(16));  !! 输出: 4
+</code></pre></div>
+<h4 id="mathpowx-y">math.pow(x, y)<a class="headerlink" href="#mathpowx-y" title="Permanent link">&para;</a></h4>
+<p>计算 x 的 y 次方。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 底数
+- <code>y</code> - 指数</p>
+<p><strong>返回值：</strong>
+- x 的 y 次方</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@math;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>show(`pow(2, 3) = `, math.pow(2, 3));  !! 输出: 8
+</code></pre></div>
+<h4 id="mathexpx">math.exp(x)<a class="headerlink" href="#mathexpx" title="Permanent link">&para;</a></h4>
+<p>计算 e 的 x 次方。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 指数</p>
+<p><strong>返回值：</strong>
+- e 的 x 次方</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>@math;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>show(`exp(1) = `, math.exp(1));  !! 输出: 2.718281828459045
+</code></pre></div>
+<h4 id="mathlogx">math.log(x)<a class="headerlink" href="#mathlogx" title="Permanent link">&para;</a></h4>
+<p>计算自然对数。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 正数</p>
+<p><strong>返回值：</strong>
+- 自然对数值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>@math;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>show(`log(e) = `, math.log(math.exp(1)));  !! 输出: 1
+</code></pre></div>
+<h4 id="mathlog10x">math.log10(x)<a class="headerlink" href="#mathlog10x" title="Permanent link">&para;</a></h4>
+<p>计算以 10 为底的对数。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 正数</p>
+<p><strong>返回值：</strong>
+- 以 10 为底的对数值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@math;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>show(`log10(100) = `, math.log10(100));  !! 输出: 2
+</code></pre></div>
+<h3 id="_6">三角函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="mathsinx">math.sin(x)<a class="headerlink" href="#mathsinx" title="Permanent link">&para;</a></h4>
+<p>计算正弦值（角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 角度</p>
+<p><strong>返回值：</strong>
+- 正弦值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@math;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>show(`sin(90) = `, math.sin(90));  !! 输出: 1
+</code></pre></div>
+<h4 id="mathcosx">math.cos(x)<a class="headerlink" href="#mathcosx" title="Permanent link">&para;</a></h4>
+<p>计算余弦值（角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 角度</p>
+<p><strong>返回值：</strong>
+- 余弦值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>@math;
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>show(`cos(0) = `, math.cos(0));  !! 输出: 1
+</code></pre></div>
+<h4 id="mathtanx">math.tan(x)<a class="headerlink" href="#mathtanx" title="Permanent link">&para;</a></h4>
+<p>计算正切值（角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 角度</p>
+<p><strong>返回值：</strong>
+- 正切值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>@math;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>show(`tan(45) = `, math.tan(45));  !! 输出: 1
+</code></pre></div>
+<h4 id="mathasinx">math.asin(x)<a class="headerlink" href="#mathasinx" title="Permanent link">&para;</a></h4>
+<p>计算反正弦值（返回角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 值（-1 到 1 之间）</p>
+<p><strong>返回值：</strong>
+- 反正弦角度</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>@math;
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>show(`asin(1) = `, math.asin(1));  !! 输出: 90
+</code></pre></div>
+<h4 id="mathacosx">math.acos(x)<a class="headerlink" href="#mathacosx" title="Permanent link">&para;</a></h4>
+<p>计算反余弦值（返回角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 值（-1 到 1 之间）</p>
+<p><strong>返回值：</strong>
+- 反余弦角度</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>@math;
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>show(`acos(1) = `, math.acos(1));  !! 输出: 0
+</code></pre></div>
+<h4 id="mathatanx">math.atan(x)<a class="headerlink" href="#mathatanx" title="Permanent link">&para;</a></h4>
+<p>计算反正切值（返回角度）。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 值</p>
+<p><strong>返回值：</strong>
+- 反正切角度</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>@math;
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>show(`atan(1) = `, math.atan(1));  !! 输出: 45
+</code></pre></div>
+<h3 id="_7">数学常数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h4 id="mathpi">math.pi()<a class="headerlink" href="#mathpi" title="Permanent link">&para;</a></h4>
+<p>返回圆周率 π。</p>
+<p><strong>参数：</strong>
+- 无</p>
+<p><strong>返回值：</strong>
+- 圆周率 π 值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>@math;
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>show(`π = `, math.pi());  !! 输出: 3.141592653589793
+</code></pre></div>
+<h4 id="mathe">math.e()<a class="headerlink" href="#mathe" title="Permanent link">&para;</a></h4>
+<p>返回自然对数的底 e。</p>
+<p><strong>参数：</strong>
+- 无</p>
+<p><strong>返回值：</strong>
+- 自然对数的底 e 值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>@math;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>show(`e = `, math.e());  !! 输出: 2.718281828459045
+</code></pre></div>
+<h3 id="_8">取整函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="mathfloorx">math.floor(x)<a class="headerlink" href="#mathfloorx" title="Permanent link">&para;</a></h4>
+<p>向下取整。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 数字</p>
+<p><strong>返回值：</strong>
+- 向下取整后的整数</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>@math;
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>show(`floor(3.9) = `, math.floor(3.9));  !! 输出: 3
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>show(`floor(-3.1) = `, math.floor(-3.1));  !! 输出: -4
+</code></pre></div>
+<h4 id="mathceilx">math.ceil(x)<a class="headerlink" href="#mathceilx" title="Permanent link">&para;</a></h4>
+<p>向上取整。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 数字</p>
+<p><strong>返回值：</strong>
+- 向上取整后的整数</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>@math;
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>show(`ceil(3.1) = `, math.ceil(3.1));  !! 输出: 4
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>show(`ceil(-3.9) = `, math.ceil(-3.9));  !! 输出: -3
+</code></pre></div>
+<h4 id="mathroundx">math.round(x)<a class="headerlink" href="#mathroundx" title="Permanent link">&para;</a></h4>
+<p>四舍五入。</p>
+<p><strong>参数：</strong>
+- <code>x</code> - 数字</p>
+<p><strong>返回值：</strong>
+- 四舍五入后的整数</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>@math;
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>show(`round(3.1) = `, math.round(3.1));  !! 输出: 3
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>show(`round(3.6) = `, math.round(3.6));  !! 输出: 4
+</code></pre></div>
+<h3 id="_9">最值函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="mathmaxargs">math.max(...args)<a class="headerlink" href="#mathmaxargs" title="Permanent link">&para;</a></h4>
+<p>返回多个数字中的最大值。</p>
+<p><strong>参数：</strong>
+- <code>...args</code> - 多个数字</p>
+<p><strong>返回值：</strong>
+- 最大值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>@math;
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>show(`max(10, 5, 20) = `, math.max(10, 5, 20));  !! 输出: 20
+</code></pre></div>
+<h4 id="mathminargs">math.min(...args)<a class="headerlink" href="#mathminargs" title="Permanent link">&para;</a></h4>
+<p>返回多个数字中的最小值。</p>
+<p><strong>参数：</strong>
+- <code>...args</code> - 多个数字</p>
+<p><strong>返回值：</strong>
+- 最小值</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>@math;
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>show(`min(10, 5, 20) = `, math.min(10, 5, 20));  !! 输出: 5
+</code></pre></div>
+<h3 id="_10">随机数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="mathrandom">math.random()<a class="headerlink" href="#mathrandom" title="Permanent link">&para;</a></h4>
+<p>生成 0 到 1 之间的随机小数。</p>
+<p><strong>参数：</strong>
+- 无</p>
+<p><strong>返回值：</strong>
+- 0 到 1 之间的随机小数</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>@math;
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>show(`random() = `, math.random());  !! 输出: 0.123456789
+</code></pre></div>
+<h4 id="mathrandinta-b">math.randint(a, b)<a class="headerlink" href="#mathrandinta-b" title="Permanent link">&para;</a></h4>
+<p>生成指定范围内的随机整数。</p>
+<p><strong>参数：</strong>
+- <code>a</code> - 最小值
+- <code>b</code> - 最大值</p>
+<p><strong>返回值：</strong>
+- 范围内的随机整数</p>
+<p><strong>示例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>@math;
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>show(`randint(1, 100) = `, math.randint(1, 100));  !! 输出: 42
+</code></pre></div>
+<h2 id="_11">示例代码<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>@math;
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>!! 基本运算
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>show(`abs(-123) = `, math.abs(-123));
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>show(`sqrt(16) = `, math.sqrt(16));
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>show(`pow(2, 3) = `, math.pow(2, 3));
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>show(`exp(1) = `, math.exp(1));
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>show(`log(e) = `, math.log(math.exp(1)));
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>show(`log10(100) = `, math.log10(100));
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>!! 三角函数
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>show(`sin(90) = `, math.sin(90));
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>show(`cos(0) = `, math.cos(0));
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>show(`tan(45) = `, math.tan(45));
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>show(`asin(1) = `, math.asin(1));
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>show(`acos(1) = `, math.acos(1));
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>show(`atan(1) = `, math.atan(1));
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>!! 数学常数
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>show(`π = `, math.pi());
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>show(`e = `, math.e());
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>!! 取整函数
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>show(`floor(3.9) = `, math.floor(3.9));
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>show(`ceil(3.1) = `, math.ceil(3.1));
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>show(`round(3.6) = `, math.round(3.6));
+<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>!! 最值
+<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>show(`max(10, 5, 20) = `, math.max(10, 5, 20));
+<a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a>show(`min(10, 5, 20) = `, math.min(10, 5, 20));
+<a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a>
+<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a>!! 随机数
+<a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a>show(`random() = `, math.random());
+<a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a>show(`randint(1, 100) = `, math.randint(1, 100));
+</code></pre></div>
+<h2 id="_12">注意事项<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li>三角函数使用角度作为参数，而非弧度</li>
+<li>对于 <code>sqrt</code> 和 <code>log</code> 等函数，参数必须满足数学要求</li>
+<li>随机数生成函数使用系统的随机数生成器</li>
+<li>所有函数都返回数字类型的值</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Oraset/oraset" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bbs.ecuil.com" target="_blank" rel="noopener" title="bbs.ecuil.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M384 144c0 97.2-86 176-192 176-26.7 0-52.1-5-75.2-14l-81.6 43.2c-9.3 4.9-20.7 3.2-28.2-4.2s-9.2-18.9-4.2-28.2l35.6-67.2C14.3 220.2 0 183.6 0 144 0 46.8 86-32 192-32s192 78.8 192 176m0 368c-94.1 0-172.4-62.1-188.8-144 120-1.5 224.3-86.9 235.8-202.7 83.3 19.2 145 88.3 145 170.7 0 39.6-14.3 76.2-38.4 105.6l35.6 67.2c4.9 9.3 3.2 20.7-4.2 28.2s-18.9 9.2-28.2 4.2L459.2 498c-23.1 9-48.5 14-75.2 14"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
