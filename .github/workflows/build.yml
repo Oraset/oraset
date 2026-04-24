@@ -70,7 +70,7 @@ jobs:
         hdiutil create -srcfolder Oraset.app -volname Oraset -ov -format UDZO oraset.dmg
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: oraset-${{ matrix.os }}
         path: |
@@ -88,56 +88,18 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Download all artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         path: artifacts
 
     - name: Upload release assets
-      uses: actions/upload-release-asset@v1
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: artifacts/oraset-windows-latest/oraset.exe
-        asset_name: oraset-windows.exe
-        asset_content_type: application/octet-stream
-
-    - name: Upload Linux binary
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: artifacts/oraset-ubuntu-latest/oraset
-        asset_name: oraset-linux
-        asset_content_type: application/octet-stream
-
-    - name: Upload Debian package
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: artifacts/oraset-ubuntu-latest/oraset_1.0.0_amd64.deb
-        asset_name: oraset-linux.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload macOS binary
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: artifacts/oraset-macos-latest/oraset
-        asset_name: oraset-macos
-        asset_content_type: application/octet-stream
-
-    - name: Upload macOS DMG
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: artifacts/oraset-macos-latest/oraset.dmg
-        asset_name: oraset-macos.dmg
-        asset_content_type: application/x-apple-diskimage
+        files: |
+          artifacts/oraset-windows-latest/oraset.exe
+          artifacts/oraset-ubuntu-latest/oraset
+          artifacts/oraset-ubuntu-latest/oraset_1.0.0_amd64.deb
+          artifacts/oraset-macos-latest/oraset
+          artifacts/oraset-macos-latest/oraset.dmg
