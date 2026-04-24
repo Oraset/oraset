@@ -1,0 +1,3 @@
+!! 简单测试arr
+arr1 = arr(`apple`);
+show(arr1);

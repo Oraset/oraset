@@ -1,0 +1,50 @@
+// 测试函数定义和调用
+
+def add(a, b) {
+    return a + b;
+}
+
+result = add(10, 20);
+show(`10 + 20 = `, result);
+
+// 测试函数返回值
+def multiply(a, b) {
+    product = a * b;
+    return product;
+}
+
+result = multiply(5, 6);
+show(`5 * 6 = `, result);
+
+// 测试类定义
+class Calculator {
+    def add(a, b) {
+        return a + b;
+    }
+    
+    def subtract(a, b) {
+        return a - b;
+    }
+    
+    def multiply(a, b) {
+        return a * b;
+    }
+    
+    def divide(a, b) {
+        return a / b;
+    }
+}
+
+// 测试类的使用（简化版，直接调用类方法）
+// 注意：完整的类实例化和方法调用需要更多的实现
+
+// 测试递归函数
+def factorial(n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+result = factorial(5);
+show(`Factorial of 5 is `, result);

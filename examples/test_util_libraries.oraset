@@ -1,0 +1,49 @@
+!! 测试实用库功能
+
+!! 数学库测试
+show(`=== 数学库测试 ===`);
+show(`绝对值: `, math.abs(`-123`));
+show(`平方根: `, math.sqrt(`16`));
+show(`幂运算: `, math.pow(`2`, `3`));
+show(`正弦值: `, math.sin(`90`));
+show(`余弦值: `, math.cos(`0`));
+show(`π值: `, math.pi());
+show(`e值: `, math.e());
+show(`最大值: `, math.max(`10`, `20`, `5`));
+show(`最小值: `, math.min(`10`, `20`, `5`));
+show(`随机数: `, math.random());
+show(`随机整数: `, math.randint(`1`, `100`));
+
+!! 日期时间库测试
+show(`\n=== 日期时间库测试 ===`);
+timestamp = time.now();
+show(`当前时间戳: `, timestamp);
+show(`格式化时间: `, time.format(timestamp, `%Y-%m-%d %H:%M:%S`));
+
+!! JSON库测试
+show(`\n=== JSON库测试 ===`);
+json_str = `{"name": "Oraset", "version": "1.0"}`;
+parsed = json.parse(json_str);
+show(`解析JSON: `, parsed);
+obj = `{name: "Test", value: 123}`;
+stringified = json.stringify(obj);
+show(`字符串化: `, stringified);
+
+!! 加密库测试
+show(`\n=== 加密库测试 ===`);
+text = `Hello, Oraset!`;
+show(`MD5加密: `, crypto.md5(text));
+show(`SHA1加密: `, crypto.sha1(text));
+show(`SHA256加密: `, crypto.sha256(text));
+
+!! 数组功能测试
+show(`\n=== 数组功能测试 ===`);
+arr = arr(`a`, `b`, `c`);
+show(`原数组: `, arr);
+show(`数组长度: `, len(arr));
+show(`数组反转: `, reverse(arr));
+show(`数组合并: `, join(arr, `-`));
+
+!! 系统功能测试
+show(`\n=== 系统功能测试 ===`);
+show(`当前目录: `, system(`pwd`));

@@ -1,0 +1,31 @@
+!! Filesystem functions module
+
+def filesystem_exists(path) {
+    return file_exists(path);
+}
+
+def filesystem_read(path) {
+    return file_read(path);
+}
+
+def filesystem_write(path, content) {
+    return file_write(path, content);
+}
+
+def filesystem_listdir(path) {
+    // This is a placeholder for future implementation
+    // In a real implementation, we would return a list of files in the directory
+    return `listdir not implemented yet`;
+}
+
+def filesystem_mkdir(path) {
+    // This is a placeholder for future implementation
+    // In a real implementation, we would create the directory
+    return `mkdir not implemented yet`;
+}
+
+def filesystem_remove(path) {
+    // This is a placeholder for future implementation
+    // In a real implementation, we would remove the file or directory
+    return `remove not implemented yet`;
+}

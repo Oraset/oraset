@@ -1,0 +1,37 @@
+!! 测试新添加的实用功能
+
+!! 测试字符串函数
+show(`=== Testing string functions ===`);
+
+str = `Hello, Oraset!`;
+show(`Original string: `, str);
+show(`startsWith('Hello'): `, startsWith(str, `Hello`));
+show(`endsWith('World'): `, endsWith(str, `World`));
+show(`endsWith('Oraset!'): `, endsWith(str, `Oraset!`));
+show(`replace('Oraset', 'World'): `, replace(str, `Oraset`, `World`));
+show(`split(', '): `, split(str, `, `));
+show(`trim('  Hello  '): `, trim(`  Hello  `));
+
+!! 测试数组函数
+show(`\n=== Testing array functions ===`);
+
+arr = array(`a`, `b`, `c`);
+show(`Original array: `, arr);
+
+arr = push(arr, `d`);
+show(`After push('d'): `, arr);
+
+arr = pop(arr);
+show(`After pop(): `, arr);
+
+show(`indexOf('b'): `, indexOf(arr, `b`));
+show(`indexOf('x'): `, indexOf(arr, `x`));
+
+!! 测试类型检查函数
+show(`\n=== Testing type check functions ===`);
+
+show(`is_number('123'): `, is_number(`123`));
+show(`is_number('abc'): `, is_number(`abc`));
+show(`is_number('123.45'): `, is_number(`123.45`));
+show(`is_string('Hello'): `, is_string(`Hello`));
+show(`is_string(123): `, is_string(`123`));

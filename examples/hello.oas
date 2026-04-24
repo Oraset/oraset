@@ -1,0 +1,12 @@
+!! 简单的Hello World程序
+show(`Hello, Oraset!`);
+
+!! 变量定义和算术运算
+x = 10;
+y = 20;
+sum = x + y;
+show(`Sum: `, sum);
+
+!! 字符串拼接
+message = `Hello, ` + `Oraset!`;
+show(message);

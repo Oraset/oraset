@@ -1,0 +1,29 @@
+// 数学工具插件
+
+// 定义一些数学相关的函数
+def add(a, b) {
+    return a + b;
+}
+
+def subtract(a, b) {
+    return a - b;
+}
+
+def multiply(a, b) {
+    return a * b;
+}
+
+def divide(a, b) {
+    return a / b;
+}
+
+// 定义一个计算阶乘的函数
+def factorial(n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+show(`Math utilities module loaded`);

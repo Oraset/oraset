@@ -1,0 +1,74 @@
+site_name: Oraset 编程语言
+site_url: https://oraset.org
+site_description: Oraset 编程语言文档
+site_author: Oraset Team
+
+# 主题配置 - 使用橙色系
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: orange
+      accent: orange
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+  icon:
+    repo: fontawesome/brands/github
+
+# 插件
+plugins:
+  - search
+
+# 导航
+nav:
+  - 首页: index.md
+  - 入门教程:
+    - 快速开始: tutorial/quickstart.md
+  - 库参考:
+    - 数学库: libraries/math.md
+
+# 额外设置
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# 社交链接
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/oraset/oraset
+    - icon: fontawesome/brands/forumbee
+      link: https://bbs.ecuil.com

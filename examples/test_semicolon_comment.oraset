@@ -1,0 +1,35 @@
+!! 测试无分号和新注释格式
+
+!! 单行注释测试
+x = 10  !! 无分号赋值
+
+!* 多行注释测试
+这是多行注释的第一行
+这是多行注释的第二行
+*!
+y = 20;  !! 有分号赋值
+
+show(x)  !! 无分号函数调用
+show(y);  !! 有分号函数调用
+
+!! 测试条件语句
+if (x > 5) {
+    show(`x is greater than 5`)
+} else {
+    show(`x is less than or equal to 5`)
+}
+
+!! 测试循环语句
+i = 0
+while (i < 5) {
+    show(`i = `, i)
+    i = i + 1
+}
+
+!! 测试函数定义
+def add(a, b) {
+    return a + b
+}
+
+result = add(10, 20)
+show(`10 + 20 = `, result)

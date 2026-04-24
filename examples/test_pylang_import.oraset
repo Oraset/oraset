@@ -1,0 +1,19 @@
+!! 测试pylang模块的导入和使用
+
+!! 导入pylang模块
+import pylang
+
+show(`=== Testing pylang module ===`)
+
+!! 测试简单的Python代码
+result = python(`print('Hello from Python!')`)
+show(`Python code result: `, result)
+
+!! 测试带有变量的Python代码
+result = python(`
+x = 10
+y = 20
+result = x + y
+print(f'Sum: {result}')
+`)
+show(`Python code with variables result: `, result)

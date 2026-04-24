@@ -1,0 +1,56 @@
+!! 测试新的 array 库
+
+!! 导入 array 库
+@array;
+
+show(`=== 测试 array 库函数 ===`);
+
+!! 创建数组
+fruits = arr(`apple`, `banana`, `cherry`);
+show(`原数组: `, fruits);
+
+!! array.length - 获取数组长度
+show(`\n数组长度: `, array.length(fruits));
+
+!! array.push - 添加元素到末尾
+fruits = array.push(fruits, `date`);
+show(`\n添加 'date' 后: `, fruits);
+
+!! array.pop - 删除末尾元素
+fruits = array.pop(fruits);
+show(`删除末尾元素后: `, fruits);
+
+!! array.unshift - 添加元素到开头
+fruits = array.unshift(fruits, `grape`);
+show(`\n添加 'grape' 到开头后: `, fruits);
+
+!! array.shift - 删除开头元素
+fruits = array.shift(fruits);
+show(`删除开头元素后: `, fruits);
+
+!! array.indexOf - 查找元素位置
+show(`\n'banana' 的位置: `, array.indexOf(fruits, `banana`));
+show(`'orange' 的位置: `, array.indexOf(fruits, `orange`));
+
+!! array.lastIndexOf - 查找元素最后位置
+numbers = arr(`1`, `2`, `3`, `2`, `1`);
+show(`\n数字数组: `, numbers);
+show(`'2' 最后出现的位置: `, array.lastIndexOf(numbers, `2`));
+
+!! array.includes - 检查元素是否存在
+show(`\n是否包含 'cherry': `, array.includes(fruits, `cherry`));
+show(`是否包含 'orange': `, array.includes(fruits, `orange`));
+
+!! array.join - 数组合并为字符串
+show(`\n数组合并为字符串: `, array.join(fruits, `, `));
+
+!! array.reverse - 反转数组
+reversed = array.reverse(fruits);
+show(`\n反转后: `, reversed);
+
+!! array.sort - 排序数组
+show(`\n排序后: `, array.sort(fruits));
+
+!! array.slice - 截取数组
+show(`\n截取 [0:2]: `, array.slice(fruits, `0`, `2`));
+show(`截取 [1:3]: `, array.slice(fruits, `1`, `3`));

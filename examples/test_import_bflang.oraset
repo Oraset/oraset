@@ -1,0 +1,10 @@
+!! 测试import语句导入bflang模块
+
+!! 导入bflang模块
+import bflang
+
+show(`=== Testing import bflang ===`);
+
+!! 测试Hello World Brainfuck代码
+hello_world = `++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.`;
+bf(hello_world);

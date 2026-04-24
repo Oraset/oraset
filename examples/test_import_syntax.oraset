@@ -1,0 +1,32 @@
+!! 测试新的导入语法
+
+!! 测试1: 不导入库直接使用（应该报错）
+!! show(`测试不导入直接使用: `, math.abs(`-123`));
+
+!! 测试2: 使用新的 @ 语法导入库
+@math;
+@time;
+@crypto;
+
+!! 测试3: 导入后使用库函数
+show(`=== 测试导入后的库函数 ===`);
+show(`绝对值: `, math.abs(`-123`));
+show(`平方根: `, math.sqrt(`16`));
+show(`π值: `, math.pi());
+
+show(`\n当前时间: `, time.now());
+show(`格式化时间: `, time.format(time.now(), `%Y-%m-%d`));
+
+show(`\nMD5加密: `, crypto.md5(`Hello`));
+
+!! 测试4: 测试HTTP模块导入
+@http;
+show(`\n=== 测试HTTP模块 ===`);
+!! 注意：这会实际发送HTTP请求
+!! show(`HTTP GET: `, http_get(`https://api.github.com/users/octocat`));
+
+!! 测试5: 测试旧的import语法（应该仍然兼容）
+import json;
+show(`\n=== 测试JSON模块 ===`);
+json_str = `{"name": "Oraset"}`;
+show(`解析JSON: `, json.parse(json_str));

@@ -1,0 +1,13 @@
+!! 测试bflang库的bf函数
+
+show(`=== Testing bflang library ===`)
+
+!! 测试Hello World Brainfuck代码
+hello_world = `++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.`
+result = bf(hello_world)
+show(`Brainfuck Hello World: `, result)
+
+!! 测试简单的Brainfuck代码
+simple_code = `++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.`
+result = bf(simple_code)
+show(`Brainfuck simple code: `, result)

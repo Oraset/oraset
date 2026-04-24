@@ -1,0 +1,22 @@
+!! 测试input和arr语法
+
+!! 测试arr数组语法
+show(`=== Testing arr() ===`);
+arr1 = arr(`apple`, `banana`, `cherry`);
+show(`Created array: `, arr1);
+show(`Array length: `, len(arr1));
+
+!! 测试数组操作
+arr1 = push(arr1, `date`);
+show(`After push('date'): `, arr1);
+
+arr1 = pop(arr1);
+show(`After pop(): `, arr1);
+
+show(`indexOf('banana'): `, indexOf(arr1, `banana`));
+
+!! 测试input语法（带提示）
+show(`\n=== Testing input() ===`);
+show(`Please enter your name:`);
+name = input(`Name: `);
+show(`Hello, `, name, `!`);

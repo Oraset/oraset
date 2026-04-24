@@ -1,0 +1,40 @@
+!! 测试数组功能
+
+!! 基本数组操作
+show(`=== 测试基本数组操作 ===`);
+arr1 = arr(`apple`, `banana`, `cherry`);
+show(`初始数组: `, arr1);
+show(`数组长度: `, len(arr1));
+
+!! 数组操作
+arr1 = push(arr1, `date`);
+show(`添加元素后: `, arr1);
+
+arr1 = pop(arr1);
+show(`删除元素后: `, arr1);
+
+show(`banana的索引: `, indexOf(arr1, `banana`));
+
+!! 新添加的数组功能
+show(`\n=== 测试新数组功能 ===`);
+
+!! 数组反转
+reversed_arr = reverse(arr1);
+show(`反转数组: `, reversed_arr);
+
+!! 数组合并
+arr2 = arr(`1`, `2`, `3`);
+merged_arr = push(push(push(arr1, arr2[0]), arr2[1]), arr2[2]);
+show(`合并数组: `, merged_arr);
+
+!! 数组排序
+sorted_arr = sort(merged_arr);
+show(`排序后: `, sorted_arr);
+
+!! 数组切片
+sliced_arr = slice(arr1, `0`, `2`);
+show(`切片 [0:2]: `, sliced_arr);
+
+!! 数组合并成字符串
+joined_str = join(arr1, `, `);
+show(`数组合并成字符串: `, joined_str);

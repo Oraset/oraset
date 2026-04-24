@@ -1,0 +1,14 @@
+// 测试包含response模块后使用HTTP请求函数
+
+// 包含response模块
+!include 'response'
+
+// 测试HTTP GET请求
+response = http_get(`http://example.com`);
+show(`HTTP GET response length: `, len(response));
+show(`First 100 characters: `, substring(response, 0, 100));
+
+// 测试HTTP POST请求
+post_data = `{"name": "Oraset", "version": "1.0"}`;
+post_response = http_post(`http://httpbin.org/post`, post_data);
+show(`\nHTTP POST response: `, post_response);

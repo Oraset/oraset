@@ -1,0 +1,63 @@
+// 测试内置库函数
+
+// 数学函数测试
+show(`=== 数学函数测试 ===`);
+
+abs_value = abs(-10);
+show(`abs(-10) = `, abs_value);
+
+max_value = max(10, 20);
+show(`max(10, 20) = `, max_value);
+
+min_value = min(10, 20);
+show(`min(10, 20) = `, min_value);
+
+pow_value = pow(2, 3);
+show(`pow(2, 3) = `, pow_value);
+
+sqrt_value = sqrt(16);
+show(`sqrt(16) = `, sqrt_value);
+
+// 字符串函数测试
+show(`\n=== 字符串函数测试 ===`);
+
+message = `Hello, Oraset!`;
+
+length = len(message);
+show(`len("Hello, Oraset!") = `, length);
+
+upper_case = upper(message);
+show(`upper("Hello, Oraset!") = `, upper_case);
+
+lower_case = lower(message);
+show(`lower("Hello, Oraset!") = `, lower_case);
+
+sub_str = substring(message, 0, 5);
+show(`substring("Hello, Oraset!", 0, 5) = `, sub_str);
+
+// 其他函数测试
+show(`\n=== 其他函数测试 ===`);
+
+// 注意：input函数会等待用户输入，这里注释掉
+// user_input = input(`请输入一个值: `);
+// show(`你输入的值是: `, user_input);
+
+int_value = int(`123`);
+show(`int("123") = `, int_value);
+
+str_value = str(456);
+show(`str(456) = `, str_value);
+
+// 测试函数组合
+show(`\n=== 函数组合测试 ===`);
+
+combined = upper(substring(`Hello, World!`, 0, 5));
+show(`upper(substring("Hello, World!", 0, 5)) = `, combined);
+
+// 测试用户定义函数与内置函数的结合
+def calculate_area(radius) {
+    return pow(radius, 2) * 3;  // 简化的圆面积计算
+}
+
+area = calculate_area(5);
+show(`calculate_area(5) = `, area);

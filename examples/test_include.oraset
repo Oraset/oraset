@@ -1,0 +1,20 @@
+// 测试加载includes文件夹中的插件
+
+// 包含自定义的数学工具插件
+!include 'math_utils'
+
+// 测试插件中的函数
+result1 = add(10, 20);
+show(`10 + 20 = `, result1);
+
+result2 = subtract(50, 30);
+show(`50 - 30 = `, result2);
+
+result3 = multiply(5, 6);
+show(`5 * 6 = `, result3);
+
+result4 = divide(100, 2);
+show(`100 / 2 = `, result4);
+
+result5 = factorial(5);
+show(`5! = `, result5);

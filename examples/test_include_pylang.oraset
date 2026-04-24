@@ -1,0 +1,17 @@
+!! 测试@include指令导入pylang模块
+
+!! 导入pylang模块
+@include pylang
+
+show(`=== Testing @include pylang ===`);
+
+!! 测试简单的Python代码
+python(`print('Hello from Python!')`);
+
+!! 测试带有变量的Python代码
+python(`
+x = 10
+y = 20
+result = x + y
+print(f'Sum: {result}')
+`);
