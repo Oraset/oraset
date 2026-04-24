@@ -39,19 +39,23 @@ Description: Oraset programming language interpreter for Termux" > oraset_1.0.0_
         cp dist/oraset oraset_1.0.0_all/usr/bin/oraset
         chmod +x oraset_1.0.0_all/usr/bin/oraset
         dpkg-deb --build oraset_1.0.0_all
+    - name: Create zip package
+      run: |
+        mkdir -p build-termux
+        cp dist/oraset build-termux/
+        cp oraset_1.0.0_all.deb build-termux/
+        zip -r build-termux.zip build-termux/
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
         name: oraset-termux
         path: |
-          dist/oraset
-          oraset_1.0.0_all.deb
+          build-termux.zip
     - name: Upload to Release
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          dist/oraset
-          oraset_1.0.0_all.deb
+          build-termux.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
