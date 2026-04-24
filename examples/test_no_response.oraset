@@ -1,7 +1,0 @@
-// 测试没有包含response模块时使用HTTP请求函数
-
-// 不包含response模块
-
-// 尝试使用HTTP GET请求，应该会抛出错误
-response = http_get(`http://example.com`);
-show(`Response length: `, len(response));

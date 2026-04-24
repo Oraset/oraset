@@ -1,2 +1,0 @@
-Hello, Oraset!
-This is a test file.

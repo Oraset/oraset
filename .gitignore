@@ -1,0 +1,42 @@
+# 忽略编译产物
+build/
+dist/
+__pycache__/
+
+# 忽略文档构建产物
+docs/site/
+
+# 忽略示例文件
+examples/
+
+# 忽略扩展文件
+includes/
+
+# 忽略测试文件
+test_*.oas
+
+# 忽略打包文件
+*.osp
+
+# 忽略临时文件
+*.tmp
+*.temp
+
+# 忽略 IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 忽略操作系统文件
+Thumbs.db
+.DS_Store
+
+# 忽略日志文件
+*.log
+
+# 忽略配置文件
+*.ini
+*.cfg
+*.conf

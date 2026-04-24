@@ -1,4 +1,0 @@
-!! 测试不导入 string 库直接使用 split 函数
-
-!! 不导入库直接使用（应该报错）
-show(`不导入直接使用: `, string.split(`test`, `t`));

@@ -1,2 +1,0 @@
-input username "请输入用户名: "
-show(username)
