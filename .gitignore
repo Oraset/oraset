@@ -1,16 +1,56 @@
-# Byte-compiled / optimized / DLL files
+# 忽略编译产物
+build/
+dist/
 __pycache__/
 *.py[codz]
 *$py.class
 
-# C extensions
+# 忽略C扩展
 *.so
 
-# Distribution / packaging
+# 忽略文档构建产物
+docs/site/
+docs/_build/
+/site
+
+# 忽略示例文件
+examples/
+
+# 忽略扩展文件
+includes/
+
+# 忽略测试文件
+test_*.oas
+
+# 忽略打包文件
+*.osp
+
+# 忽略临时文件
+*.tmp
+*.temp
+
+# 忽略IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 忽略操作系统文件
+Thumbs.db
+.DS_Store
+
+# 忽略日志文件
+*.log
+
+# 忽略配置文件
+*.ini
+*.cfg
+*.conf
+
+# 忽略安装相关文件
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -26,17 +66,15 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+# 忽略PyInstaller文件
 *.manifest
 *.spec
 
-# Installer logs
+# 忽略安装日志
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# 忽略测试覆盖率报告
 htmlcov/
 .tox/
 .nox/
@@ -51,90 +89,34 @@ coverage.xml
 .pytest_cache/
 cover/
 
-# Translations
+# 忽略翻译文件
 *.mo
 *.pot
 
-# Django stuff:
-*.log
+# 忽略Django相关文件
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# 忽略Flask相关文件
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# 忽略Scrapy相关文件
 .scrapy
 
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
+# 忽略PyBuilder文件
 .pybuilder/
 target/
 
-# Jupyter Notebook
+# 忽略Jupyter Notebook文件
 .ipynb_checkpoints
 
-# IPython
+# 忽略IPython文件
 profile_default/
 ipython_config.py
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-#poetry.toml
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
-#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
-#pdm.lock
-#pdm.toml
-.pdm-python
-.pdm-build/
-
-# pixi
-#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
-#pixi.lock
-#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
-#   in the .venv directory. It is recommended not to include this directory in version control.
-.pixi
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# 忽略虚拟环境
 .env
 .envrc
 .venv
@@ -144,64 +126,41 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+# 忽略Spyder项目设置
 .spyderproject
 .spyproject
 
-# Rope project settings
+# 忽略Rope项目设置
 .ropeproject
 
-# mkdocs documentation
-/site
-
-# mypy
+# 忽略类型检查缓存
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
+# 忽略Pyre类型检查器
 .pyre/
 
-# pytype static type analyzer
+# 忽略pytype静态类型分析器
 .pytype/
 
-# Cython debug symbols
+# 忽略Cython调试符号
 cython_debug/
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
-
-# Abstra
-# Abstra is an AI-powered process automation framework.
-# Ignore directories containing user credentials, local state, and settings.
-# Learn more at https://abstra.io/docs
+# 忽略Abstra相关文件
 .abstra/
 
-# Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
-#  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
-#  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
-
-# Ruff stuff:
+# 忽略Ruff缓存
 .ruff_cache/
 
-# PyPI configuration file
+# 忽略PyPI配置文件
 .pypirc
 
-# Cursor
-#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
-#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
-#  refer to https://docs.cursor.com/context/ignore-files
+# 忽略Cursor相关文件
 .cursorignore
 .cursorindexingignore
 
-# Marimo
+# 忽略Marimo相关文件
 marimo/_static/
 marimo/_lsp/
 __marimo__/
