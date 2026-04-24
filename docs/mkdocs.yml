@@ -39,6 +39,8 @@ nav:
   - 库参考:
       - 数学库: libraries/math.md
       - 字符串库: libraries/string.md
+      - 数组库: libraries/array.md
+      - 工具库: libraries/util.md
 
 # 额外设置
 markdown_extensions:
