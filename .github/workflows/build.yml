@@ -13,7 +13,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest, ubuntu-latest]
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: windows-latest
+            platform: windows
+          - os: macos-latest
+            platform: macos
+          - os: ubuntu-latest
+            platform: termux
 
     steps:
     - uses: actions/checkout@v3
@@ -49,7 +58,7 @@ jobs:
         dpkg-deb --build oraset_1.0.0_amd64
 
     - name: Create DMG package (macOS only)
-      if: matrix.os == 'macos-latest'
+      if: matrix.platform == 'macos'
       run: |
         mkdir -p Oraset.app/Contents/MacOS
         cp dist/oraset Oraset.app/Contents/MacOS/
@@ -69,16 +78,54 @@ jobs:
         echo '</plist>' >> Oraset.app/Contents/Info.plist
         hdiutil create -srcfolder Oraset.app -volname Oraset -ov -format UDZO oraset.dmg
 
+    - name: Build for Termux (Ubuntu only)
+      if: matrix.platform == 'termux'
+      run: |
+        # Install Termux build dependencies
+        sudo apt-get update
+        sudo apt-get install -y proot-distro
+        
+        # Create Termux environment
+        proot-distro install termux
+        
+        # Build for Termux
+        proot-distro login termux -- bash -c 'apt update && apt install -y python3 python3-pip python3-dev build-essential
+        pip install pyinstaller
+        cd /root
+        cp -r /root/oraset .
+        cd oraset
+        pyinstaller --onefile --name oraset oraset.py
+        
+        # Create Termux deb package
+        mkdir -p oraset_1.0.0_all/usr/bin
+        cp dist/oraset oraset_1.0.0_all/usr/bin/
+        mkdir -p oraset_1.0.0_all/DEBIAN
+        echo "Package: oraset" > oraset_1.0.0_all/DEBIAN/control
+        echo "Version: 1.0.0" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Section: utils" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Priority: optional" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Architecture: all" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Depends: python3" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Maintainer: Oraset Team <contact@oraset.org>" >> oraset_1.0.0_all/DEBIAN/control
+        echo "Description: Oraset programming language interpreter for Termux" >> oraset_1.0.0_all/DEBIAN/control
+        dpkg-deb --build oraset_1.0.0_all'
+        
+        # Copy artifacts
+        cp /root/termux/root/oraset/dist/oraset dist/oraset-termux
+        cp /root/termux/root/oraset/oraset_1.0.0_all.deb .
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: oraset-${{ matrix.os }}
+        name: oraset-${{ matrix.platform }}
         path: |
-          ${{ matrix.os == 'windows-latest' && 'dist/oraset.exe' || '' }}
-          ${{ matrix.os == 'ubuntu-latest' && 'dist/oraset' || '' }}
-          ${{ matrix.os == 'ubuntu-latest' && 'oraset_1.0.0_amd64.deb' || '' }}
-          ${{ matrix.os == 'macos-latest' && 'dist/oraset' || '' }}
-          ${{ matrix.os == 'macos-latest' && 'oraset.dmg' || '' }}
+          ${{ matrix.platform == 'windows' && 'dist/oraset.exe' || '' }}
+          ${{ matrix.platform == 'linux' && 'dist/oraset' || '' }}
+          ${{ matrix.platform == 'linux' && 'oraset_1.0.0_amd64.deb' || '' }}
+          ${{ matrix.platform == 'macos' && 'dist/oraset' || '' }}
+          ${{ matrix.platform == 'macos' && 'oraset.dmg' || '' }}
+          ${{ matrix.platform == 'termux' && 'dist/oraset-termux' || '' }}
+          ${{ matrix.platform == 'termux' && 'oraset_1.0.0_all.deb' || '' }}
 
   release:
     needs: build
@@ -98,8 +145,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         files: |
-          artifacts/oraset-windows-latest/oraset.exe
-          artifacts/oraset-ubuntu-latest/oraset
-          artifacts/oraset-ubuntu-latest/oraset_1.0.0_amd64.deb
-          artifacts/oraset-macos-latest/oraset
-          artifacts/oraset-macos-latest/oraset.dmg
+          artifacts/oraset-windows/oraset.exe
+          artifacts/oraset-linux/oraset
+          artifacts/oraset-linux/oraset_1.0.0_amd64.deb
+          artifacts/oraset-macos/oraset
+          artifacts/oraset-macos/oraset.dmg
+          artifacts/oraset-termux/oraset-termux
+          artifacts/oraset-termux/oraset_1.0.0_all.deb
